@@ -3,16 +3,18 @@
 
 const express = require("express");
 
-const app = express();
 const ExpressError = require("./expressError");
+const cRoutes = require("./routes/companies");
+const iRoutes = require("./routes/invoices");
+const dRoutes = require("./routes/industries");
+
+const app = express();
+
 
 app.use(express.json());
-
-const cRoutes = require("./routes/companies");
 app.use("/companies", cRoutes);
-
-const iRoutes = require("./routes/invoices");
 app.use("/invoices", iRoutes);
+app.use("/industries", dRoutes);
 
 /** 404 handler */
 
